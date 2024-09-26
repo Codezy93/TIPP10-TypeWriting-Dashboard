@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Tables</title>
+</head>
+<body>
+    <h1>Database Tables with First 3 Entries</h1>
+
+    {% for table_name, data in table_data.items() %}
+    <h2>{{ table_name }}</h2>
+
+    <table border="1">
+        <thead>
+            <tr>
+                {% for header in data.headers %}
+                <th>{{ header }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data.rows %}
+            <tr>
+                {% for value in row %}
+                <td>{{ value }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% endfor %}
+
+</body>
+</html>
